@@ -11,19 +11,13 @@ void spiral(ll row, ll col)
     {
         result += (col & 1 == 1) ? col * col : (col - 1) * (col - 1) + 1;
         bool decrease = !(col & 1 == 1);
-        for (int i = row; i > 1; i--)
-        {
-            result -= (decrease) ? -1 : 1;
-        }
+        result -= (decrease) ? -(row - 1) : row - 1;
     }
     else
     {
         result += (row & 1 == 1) ? (row - 1) * (row - 1) + 1 : row * row;
         bool decrease = !(row & 1 == 1);
-        for (int i = col; i > 1; i--)
-        {
-            result -= (decrease) ? 1 : -1;
-        }
+        result -= (decrease) ? (col - 1) : -(col - 1);
     }
     cout << result << endl;
 }
